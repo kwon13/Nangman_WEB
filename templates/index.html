@@ -8,30 +8,40 @@
 </head>
 <body>
     <style>
-        .icon {
-        
-        display: flex;
-        justify-content: space-between;
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        left: 10px;
-        
+        body {
+            background: black;
+            font-family: 'nanumsquare';
+            
         }
-        .search {
-        color: #808080;
+        div {
+            margin-top: 500px;
+            color: white;
+            text-align: center;
+            opacity: 0;
+            transition: all 1s;
         }
-        </style>
-    <div class="search-mode">
-        <input type="text" >
-        
-        <div class="icon">
-            <div class="search">
-            <i class="fas fa-search"></i>
-            </div>
-        </div>
-    </div>
+
+    </style>
+    <div><h1>안녕하세요</h1></div>
+    <div><h1>안녕하세요</h1></div>
+    <div><h1>안녕하세요</h1></div>
+    <script>
+
+        let observer = new IntersectionObserver((e)=>{
+            e.forEach((result)=>{
+                if (result.isIntersecting){
+                    result.target.style.opacity = 1;
+                } else {
+                    result.target.style.opacity = 0;
+                }
+            })
+        })
+
+        let div = document.querySelectorAll('div')
+        observer.observe(div[0])
+        observer.observe(div[1])
+        observer.observe(div[2])
+
+    </script>
 </body>
 </html>
-
-
