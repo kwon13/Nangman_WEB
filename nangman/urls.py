@@ -5,6 +5,6 @@ app_name = 'nangman'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('search/<str:desc>', views.search, name='search'),
-    path('debug_search/<str:desc>', views.debug_search, name='debug_search'),
+    path('search/', views.search, name='search'),
+    path('debug_search/', views.debug_search, name='debug_search'),
 ]
