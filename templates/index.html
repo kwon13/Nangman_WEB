@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nangman: 고사성어를 찾아주는 사전</title>
+    <title>Nangman</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -16,25 +16,12 @@
         body {
             background: rgb(248, 250, 252);
             font-family: 'nanumsquare';
-            margin-top: 130px;
-
         }
 
-        .result-box {
-            margin: 50px 230px;
-            color: rgb(30, 35, 37);
-            opacity: 0;
-            transition: all 0.9s;
-        }
-
-        .idiom {
-            font-size: 45px;
-            font-weight: bold;
-        }
-
-        .chinese-idiom {
-            font-size: 25px;
-            font-weight: lighter;
+        .search-content {
+            position: absolute;
+            right: 30%;
+            top: 50%;
         }
 
         .search-box {
@@ -43,7 +30,6 @@
             height: 30px;
             padding: 5px;
             border-radius: 10px;
-            
             border: 1.9px solid rgb(30, 35, 37);
         }
 
@@ -72,104 +58,61 @@
             line-height: 30px;
         }
 
-        .page-header {
-            width: 100%;
-            background-color: rgb(248, 250, 252);
-            position: fixed;
+        .main-box {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            text-align: center;
+        }
+
+        .search-container {
+            padding: 100px 50px;
+            border: 0px;
+            border-radius: 5px;
+        }
+
+        .url-button {
+            margin-top: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .text-gradient {
+            background: -webkit-linear-gradient(-50deg, rgb(88, 112, 121) 0%, rgb(168, 188, 204) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-box-decoration-break: clone;
+            font-size: 100px;
+            font-weight: bold;
+
         }
     </style>
-    <!-- search box -->
-    <nav class=" page-header header" style="top:0px; padding:20px 230px;">
-        <div>
-            <span style="font-size: 45px; font-weight: bold; margin-right:30px;"><a href="/" style="text-decoration-line : none; color : black;">DIYA</a></span>
-        </div>
-        <div class="search-box">
-            <form action="." method="post">
-                <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
-                <button class="search-btn" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </div>
-    </nav>
-    <!-- result box -->
-    <div class="result-box">
-        <span class='idiom'>1. 다재다능</span><span class="chinese-idiom">(多才多能)</span>
-        <hr style="height: 0.5px; border: 0; background-color : rgb(30, 35, 37); margin-bottom:20px;">
-        <span style="font-size: 20px;">- 재주와 능력이 여러 가지로 많음.</span>
-        <p style="font-size: 20px; font-weight:bold; margin-bottom:10px;">&#8251 사용 예시</p>
-        <div style="padding: 20px; background: #eee; border-radius: 5px;">
-            <p>창의적 리더의 지향점은 다재다능한 폴리매스형 인재이다.</p>
-            <p>엄마를 떠올리면 참 다재다능한 사람이라는 생각이 든다.</p>
-            <p>미켈란젤로나 라파엘로도 마찬가지로 회화는 물론 조각과 건축에도 능한 다재다능한 천재였습니다.</p>
-        </div>
-    </div>
-    <div class="result-box">
-        <span class='idiom'>2. 다재다능</span><span class="chinese-idiom">(多才多能)</span>
-        <hr style="height: 0.5px; border: 0; background-color : rgb(30, 35, 37); margin-bottom:20px;">
-        <span style="font-size: 20px;">- 재주와 능력이 여러 가지로 많음.</span>
-        <p style="font-size: 20px; font-weight:bold; margin-bottom:10px;">&#8251 사용 예시</p>
-        <div style="padding: 20px; background: #eee; border-radius: 5px;">
-            <p>창의적 리더의 지향점은 다재다능한 폴리매스형 인재이다.</p>
-            <p>엄마를 떠올리면 참 다재다능한 사람이라는 생각이 든다.</p>
-            <p>미켈란젤로나 라파엘로도 마찬가지로 회화는 물론 조각과 건축에도 능한 다재다능한 천재였습니다.</p>
-        </div>
-    </div>
-    <div class="result-box">
-        <span class='idiom'>3. 다재다능</span><span class="chinese-idiom">(多才多能)</span>
-        <hr style="height: 0.5px; border: 0; background-color : rgb(30, 35, 37); margin-bottom:20px;">
-        <span style="font-size: 20px;">- 재주와 능력이 여러 가지로 많음.</span>
-        <p style="font-size: 20px; font-weight:bold; margin-bottom:10px;">&#8251 사용 예시</p>
-        <div style="padding: 20px; background: #eee; border-radius: 5px;">
-            <p>창의적 리더의 지향점은 다재다능한 폴리매스형 인재이다.</p>
-            <p>엄마를 떠올리면 참 다재다능한 사람이라는 생각이 든다.</p>
-            <p>미켈란젤로나 라파엘로도 마찬가지로 회화는 물론 조각과 건축에도 능한 다재다능한 천재였습니다.</p>
-        </div>
-    </div>
-    <div class="result-box">
-        <span class='idiom'>4. 다재다능</span><span class="chinese-idiom">(多才多能)</span>
-        <hr style="height: 0.5px; border: 0; background-color : rgb(30, 35, 37); margin-bottom:20px;">
-        <span style="font-size: 20px;">- 재주와 능력이 여러 가지로 많음.</span>
-        <p style="font-size: 20px; font-weight:bold; margin-bottom:10px;">&#8251 사용 예시</p>
-        <div style="padding: 20px; background: #eee; border-radius: 5px;">
-            <p>창의적 리더의 지향점은 다재다능한 폴리매스형 인재이다.</p>
-            <p>엄마를 떠올리면 참 다재다능한 사람이라는 생각이 든다.</p>
-            <p>미켈란젤로나 라파엘로도 마찬가지로 회화는 물론 조각과 건축에도 능한 다재다능한 천재였습니다.</p>
-        </div>
-    </div>
-    <div class="result-box">
-        <span class='idiom'>5. 다재다능</span><span class="chinese-idiom">(多才多能)</span>
-        <hr style="height: 0.5px; border: 0; background-color : rgb(30, 35, 37); margin-bottom:20px;">
-        <span style="font-size: 20px;">- 재주와 능력이 여러 가지로 많음.</span>
-        <p style="font-size: 20px; font-weight:bold; margin-bottom:10px;">&#8251 사용 예시</p>
-        <div style="padding: 20px; background: #eee; border-radius: 5px;">
-            <p>창의적 리더의 지향점은 다재다능한 폴리매스형 인재이다.</p>
-            <p>엄마를 떠올리면 참 다재다능한 사람이라는 생각이 든다.</p>
-            <p>미켈란젤로나 라파엘로도 마찬가지로 회화는 물론 조각과 건축에도 능한 다재다능한 천재였습니다.</p>
-        </div>
-    </div>
+    <div class="main-box">
+        <div class="search-container">
 
-    <script>
+            <span class="text-gradient">NANGMAN</span>
+            <div class="search-box">
+                <form action="/search/" method="post">
+                    {% csrf_token %}
+                    <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요">
+                    <button class="search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
 
-        let observer = new IntersectionObserver((e) => {
-            e.forEach((result) => {
-                if (result.isIntersecting) {
-                    result.target.style.opacity = 1;
-                } else {
-                    result.target.style.opacity = 0;
-                }
-            })
-        })
-
-        let div = document.querySelectorAll('.result-box')
-        observer.observe(div[0])
-        observer.observe(div[1])
-        observer.observe(div[2])
-        observer.observe(div[3])
-        observer.observe(div[4])
-
-    </script>
+            <div class="btn-box">
+                <button class='url-button' type="button" onclick="location.href='https://blog.diyaml.com/'">What's
+                    DIYA?</button>
+                <button class='url-button' type="button" onclick="location.href='https://blog.diyaml.com/'">What's
+                    DIYA?</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
