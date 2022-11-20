@@ -85,8 +85,9 @@
             <span style="font-size: 45px; font-weight: bold; margin-right:30px;"><a href="/" style="text-decoration-line : none; color : black;">DIYA</a></span>
         </div>
         <div class="search-box">
-            <form action="." method="post">{% csrf_token %}
-                <input class="search-txt" type="text" placeholder="검색어를 입력해 주세요">
+            <form action="/search" method="get">
+                {% csrf_token %}
+                <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요">
                 <button class="search-btn" type="submit">
                     <i class="fas fa-search"></i>
                 </button>

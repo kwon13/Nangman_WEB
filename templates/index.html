@@ -96,13 +96,13 @@
 
             <span class="text-gradient">NANGMAN</span>
             <div class="search-box">
-                <form action="/search/" method="post">
-                    {% csrf_token %}
-                    <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요">
-                    <button class="search-btn" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
+
+
+                <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요">
+                <button class="search-btn" type="button" onclick="search_idiom()">
+                    <i class="fas fa-search"></i>
+                </button>
+
             </div>
 
             <div class="btn-box">
@@ -113,6 +113,12 @@
             </div>
         </div>
     </div>
+    <script>
+        function search_idiom() {
+            desc = $('#desc').val();
+            window.location.href = '127.0.0.1:8000/search/?desc=' + desc
+        }
+    </script>
 </body>
 
 </html>
