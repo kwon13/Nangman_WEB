@@ -47,7 +47,7 @@ def search(request):
             results = response.json()['results']
             
             results = [{'idiom':res[0], 'prob':res[1], 'definition':definition['idiom_def'][res[0]][1], 'chinese':definition['idiom_def'][res[0]][0], 'ex':definition['examples'][res[0]] } for res in results]
-            return render(request, '_search.html', {'result':results})
+            return render(request, 'search.html', {'result':results})
         else:
             print(f'Something wrong! status_code: {response.status_code}')
             return render(request, 'index.html')
