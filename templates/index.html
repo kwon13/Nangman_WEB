@@ -90,6 +90,7 @@
             font-weight: bold;
 
         }
+        input[type="submit"] {font-family: FontAwesome;}
     </style>
     <div class="main-box">
         <div class="search-container">
@@ -97,28 +98,24 @@
             <span class="text-gradient">NANGMAN</span>
             <div class="search-box">
 
-
-                <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요">
-                <button class="search-btn" type="button" onclick="search_idiom()">
-                    <i class="fas fa-search"></i>
-                </button>
-
+                <form id="form" action="/search">
+                    <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요" name="desc">
+                    <input type="submit" class="search-btn" value="&#xf002;">
+                </form>
             </div>
 
             <div class="btn-box">
-                <button class='url-button' type="button" onclick="location.href='https://blog.diyaml.com/'">What's
-                    DIYA?</button>
-                <button class='url-button' type="button" onclick="location.href='https://blog.diyaml.com/'">What's
-                    DIYA?</button>
+                <button class='url-button' type="button" onclick="location.href='https://blog.diyaml.com/'">
+                    What's DIYA?</button>
+                <button class='url-button' type="button" onclick="location.href='https://www.youtube.com/@diya_6105'">
+                    DIYA Youtube</button>
             </div>
         </div>
     </div>
-    <script>
-        function search_idiom() {
-            desc = $('#desc').val();
-            window.location.href = '127.0.0.1:8000/search/?desc=' + desc
-        }
-    </script>
 </body>
 
 </html>
+<!-- 
+결국 끝내 [IDIOM]했다.
+DIYA는 다른 인공지능 동아리 중에서도 가장 [IDIOM]한 동아리이다.
+ -->

@@ -78,6 +78,7 @@
             position: fixed;
             display: flex;
         }
+        input[type="submit"] {font-family: FontAwesome;}
     </style>
     <!-- search box -->
     <nav class=" page-header header" style="top:0px; padding:20px 230px;">
@@ -85,12 +86,9 @@
             <span style="font-size: 45px; font-weight: bold; margin-right:30px;"><a href="/" style="text-decoration-line : none; color : black;">DIYA</a></span>
         </div>
         <div class="search-box">
-            <form action="/search" method="get">
-                {% csrf_token %}
-                <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요">
-                <button class="search-btn" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
+            <form id="form" action="/search">
+                <input class="search-txt" id="desc" type="text" placeholder="검색어를 입력해 주세요" name="desc">
+                <input type="submit" class="search-btn" value="&#xf002;">
             </form>
         </div>
     </nav>
@@ -99,14 +97,14 @@
         {% for res in result %}
             {% if forloop.counter < 6 %} 
             <div class="result-box">
-                <span class='idiom'>{{ forloop.counter0 }}.{{ res.idiom }}</span><span class="chinese-idiom">(多才多能)</span>
+                <span class='idiom'>{{ forloop.counter0 }}. {{ res.idiom }}</span><span class="chinese-idiom">({{ res.chinese }})</span>
                 <hr style="height: 0.5px; border: 0; background-color : rgb(30, 35, 37); margin-bottom:20px;">
-                <span style="font-size: 20px;">- 재주와 능력이 여러 가지로 많음.</span>
+                <span style="font-size: 20px;">- {{ res.definition }}</span>
                 <p style="font-size: 20px; font-weight:bold; margin-bottom:10px;">&#8251 사용 예시</p>
                 <div style="padding: 20px; background: #eee; border-radius: 5px;">
-                    <p>창의적 리더의 지향점은 다재다능한 폴리매스형 인재이다.</p>
-                    <p>엄마를 떠올리면 참 다재다능한 사람이라는 생각이 든다.</p>
-                    <p>미켈란젤로나 라파엘로도 마찬가지로 회화는 물론 조각과 건축에도 능한 다재다능한 천재였습니다.</p>
+                    {% for ex in res.ex %}
+                    <p>{{ex}}</p>
+                    {% endfor %}
                 </div>
             </div>
             {% endif %} 
